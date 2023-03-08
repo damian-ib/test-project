@@ -2,12 +2,13 @@
 import json
 from flask import Flask, Response
 import optparse
+import datetime
 
 application = Flask(__name__)
 
 @application.route('/', methods=['GET'])
 def get():
-    return Response(json.dumps({'Output': 'Hello World'}), mimetype='application/json', status=200)
+    return Response(json.dumps({'Output': f'Hello IBKR! Welcome to this awesome AI project. The time is: {datetime.datetime.now()}'}), mimetype='application/json', status=200)
 
 @application.route('/', methods=['POST'])
 def post():
